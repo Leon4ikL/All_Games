@@ -40,6 +40,16 @@ class HomeFragment : Fragment() {
         with(binding){
             verticalHomeScreenAdapter.list = listOf(
                 CategoryGameList(0,"Popularity", listOf(
+                    GameItem(0,1,"Game 1 Game Vampitr Vampire: The Masquerade - Bloodlines 2"),
+                    GameItem(0,1,"Game 2"),
+                    GameItem(0,1,"Game 3")
+                )),
+                CategoryGameList(1,"Category 1", listOf(
+                    GameItem(0,1,"Game 1"),
+                    GameItem(0,1,"Game 2"),
+                    GameItem(0,1,"Game 3")
+                )),
+                CategoryGameList(2,"Category 2", listOf(
                     GameItem(0,1,"Game 1"),
                     GameItem(0,1,"Game 2"),
                     GameItem(0,1,"Game 3")
