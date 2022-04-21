@@ -5,4 +5,5 @@
     <string name="search">Search</string>
     <string name="search_image">Search Image</string>
     <string name="game_image">Game Image</string>
+    <string name="all">All</string>
 </resources>
