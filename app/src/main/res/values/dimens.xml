@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="width_small_card_image">240dp</dimen>
+    <dimen name="height_small_card_image">166dp</dimen>
+    <dimen name="small_margin">8dp</dimen>
+    <dimen name="normal_text">16sp</dimen>
+    <dimen name="card_elevation">2dp</dimen>
+    <dimen name="small_card_corner_radius">8dp</dimen>
+    <dimen name="large_text">24sp</dimen>
+    <dimen name="normal_margin">16dp</dimen>
+    <dimen name="small_padding">8dp</dimen>
+    <dimen name="normal_padding">12dp</dimen>
+</resources>

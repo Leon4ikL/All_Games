@@ -24,19 +24,19 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginStart="@dimen/normal_margin"
+            android:layout_marginEnd="@dimen/normal_margin"
+            android:layout_marginBottom="@dimen/normal_margin"
             android:background="@drawable/search_bg">
 
             <TextView
                 android:id="@+id/tvSearch"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:padding="12dp"
+                android:layout_marginStart="@dimen/small_margin"
+                android:padding="@dimen/normal_padding"
                 android:text="@string/search"
-                android:textSize="16sp"
+                android:textSize="@dimen/normal_text"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/ivSearch"
                 app:layout_constraintStart_toStartOf="parent"
@@ -46,7 +46,7 @@
                 android:id="@+id/ivSearch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
+                android:layout_marginEnd="@dimen/normal_margin"
                 android:contentDescription="@string/search_image"
                 android:src="@drawable/search"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -59,10 +59,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="0dp"
         android:layout_height="0dp"
-
-        android:clipToPadding="false"
         android:orientation="vertical"
-        android:padding="8dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
