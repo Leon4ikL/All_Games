@@ -7,29 +7,47 @@ import com.hannesdorfmann.adapterdelegates4.dsl.adapterDelegateViewBinding
 import com.leon.allgamesagru.databinding.ItemHomeVerticalCatalogBinding
 import com.leon.allgamesagru.databinding.ItemHomeVerticalCategoriesBinding
 import com.leon.allgamesagru.ui.models.CatalogListItem
-import com.leon.allgamesagru.ui.models.CategoriesItem
+import com.leon.allgamesagru.ui.models.CategoriesSmallItem
+import com.leon.allgamesagru.ui.models.CategoriesThinItem
 import com.leon.allgamesagru.ui.models.HomeVerticalListItems
 
 object HomeVerticalDelegate {
 
-    private val adapterCategoriesGamesList = ListDelegationAdapter(
-        HomeHorizontalDelegate.smallGameListAdapterDelegate(),
+    private val adapterCategoriesSmallGamesList = ListDelegationAdapter(
+        HomeHorizontalDelegate.smallGameListAdapterDelegate()
+    )
+
+    private val adapterCategoriesThinGamesList = ListDelegationAdapter(
         HomeHorizontalDelegate.thinGameListAdapterDelegate()
     )
 
-
-
+    private val adapterCatalogList = ListDelegationAdapter(
+        HomeHorizontalDelegate.catalogListAdapterDelegate()
+    )
 
     fun categoriesGameListAdapterDelegate() =
-        adapterDelegateViewBinding<CategoriesItem, HomeVerticalListItems, ItemHomeVerticalCategoriesBinding>(
+        adapterDelegateViewBinding<CategoriesSmallItem, HomeVerticalListItems, ItemHomeVerticalCategoriesBinding>(
             { layoutInflater: LayoutInflater, parent: ViewGroup ->
                 ItemHomeVerticalCategoriesBinding.inflate(layoutInflater, parent, false)
             })
         {
             bind {
                 binding.tvCategoryTitle.text = item.title
-                binding.recyclerView.adapter = adapterCategoriesGamesList
-                adapterCategoriesGamesList.items = item.games
+                binding.recyclerView.adapter = adapterCategoriesSmallGamesList
+                adapterCategoriesSmallGamesList.items = item.games
+            }
+        }
+
+    fun categoriesThinGameListAdapterDelegate() =
+        adapterDelegateViewBinding<CategoriesThinItem, HomeVerticalListItems, ItemHomeVerticalCategoriesBinding>(
+            { layoutInflater: LayoutInflater, parent: ViewGroup ->
+                ItemHomeVerticalCategoriesBinding.inflate(layoutInflater, parent, false)
+            })
+        {
+            bind {
+                binding.tvCategoryTitle.text = item.title
+                binding.recyclerView.adapter = adapterCategoriesThinGamesList
+                adapterCategoriesThinGamesList.items = item.games
             }
         }
 
@@ -39,7 +57,8 @@ object HomeVerticalDelegate {
                 ItemHomeVerticalCatalogBinding.inflate(layoutInflater, parent, false)
             }) {
             bind {
-
+                binding.recyclerView.adapter = adapterCatalogList
+                adapterCatalogList.items = item.catalog
             }
         }
 

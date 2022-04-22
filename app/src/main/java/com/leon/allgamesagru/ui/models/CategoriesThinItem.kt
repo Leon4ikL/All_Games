@@ -1,7 +1,7 @@
 package com.leon.allgamesagru.ui.models
 
-data class CategoriesItem(
+data class CategoriesThinItem(
     val id: Int,
     val title: String,
-    val games: List<HomeHorizontalListItem>
+    val games: List<ThinGameItem>
 ): HomeVerticalListItems
