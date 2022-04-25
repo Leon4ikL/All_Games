@@ -16,7 +16,7 @@ object HomeDelegate {
                     .inflate(layoutInflater, parent, false)
             }
         ) {
-            val adapter = HomeAdapter()
+            val adapter = CardAdapter()
             binding.recyclerView.adapter = adapter
             bind {
                 adapter.items = item.items
@@ -31,7 +31,7 @@ object HomeDelegate {
                     .inflate(layoutInflater, parent, false)
             }
         ) {
-            val adapter = HomeAdapter()
+            val adapter = CardAdapter()
             binding.recyclerView.adapter = adapter
             bind {
                 binding.tvCategoryTitle.text = item.title
