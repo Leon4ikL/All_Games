@@ -5,10 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
 import com.leon.allgamesagru.databinding.FragmentHomeBinding
-import com.leon.allgamesagru.ui.adapter.home.HomeVerticalDelegate
-import com.leon.allgamesagru.ui.models.*
+import com.leon.allgamesagru.ui.adapter.home.HomeAdapter
 
 class HomeFragment : Fragment() {
 
@@ -16,11 +14,7 @@ class HomeFragment : Fragment() {
     private val binding: FragmentHomeBinding
         get() = _binding ?: throw RuntimeException("Home Fragment Binding == null")
 
-    private val adapter = ListDelegationAdapter(
-        HomeVerticalDelegate.categoriesGameListAdapterDelegate(),
-        HomeVerticalDelegate.categoriesThinGameListAdapterDelegate(),
-        HomeVerticalDelegate.catalogListAdapterDelegate()
-    )
+    private val adapter = HomeAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -39,37 +33,6 @@ class HomeFragment : Fragment() {
     private fun initialization() {
         with(binding) {
             rvVertical.adapter = adapter
-            adapter.apply {
-                items = listOf(
-                    CatalogListItem(
-                        0, listOf(
-                            CatalogItem(1),
-                            CatalogItem(2),
-                            CatalogItem(3),
-                            CatalogItem(4),
-                        )
-                    ),
-                    CategoriesSmallItem(
-                        0, "Popularity", listOf(
-                            SmallGameItem(1),
-                            SmallGameItem(2),
-                            SmallGameItem(3),
-                            SmallGameItem(4),
-                            SmallGameItem(5),
-                            SmallGameItem(6),
-                        )
-                    ),
-                    CategoriesThinItem(
-                        0, "Popularity", listOf(
-                            ThinGameItem(0),
-                            ThinGameItem(0),
-                            ThinGameItem(0),
-                            ThinGameItem(0),
-                            ThinGameItem(0),
-                        )
-                    )
-                )
-            }
         }
     }
 

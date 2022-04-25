@@ -1,3 +1,5 @@
 package com.leon.allgamesagru.ui.models
 
-interface HomeVerticalListItems
+interface ListItem {
+    val id: Int
+}
