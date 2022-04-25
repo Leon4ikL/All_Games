@@ -30,7 +30,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvCategoryTitle"
-        tools:listitem="@layout/item_game_small">
+        tools:listitem="@layout/item_game_wide">
 
     </androidx.recyclerview.widget.RecyclerView>
 

@@ -1,17 +1,14 @@
 package com.leon.allgamesagru.ui.home
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.leon.allgamesagru.R
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.leon.allgamesagru.databinding.FragmentHomeBinding
-import com.leon.allgamesagru.ui.adapter.HorizontalGameAdapter
-import com.leon.allgamesagru.ui.adapter.VerticalHomeScreenAdapter
-import com.leon.allgamesagru.ui.models.CategoryGameList
-import com.leon.allgamesagru.ui.models.GameItem
-import java.lang.RuntimeException
+import com.leon.allgamesagru.ui.adapter.home.HomeAdapter
 
 class HomeFragment : Fragment() {
 
@@ -19,8 +16,9 @@ class HomeFragment : Fragment() {
     private val binding: FragmentHomeBinding
         get() = _binding ?: throw RuntimeException("Home Fragment Binding == null")
 
+    private val viewModel by lazy { ViewModelProvider(this)[HomeFragmentViewModel::class.java] }
 
-    private val verticalHomeScreenAdapter = VerticalHomeScreenAdapter()
+    private val adapter = HomeAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,26 +35,11 @@ class HomeFragment : Fragment() {
     }
 
     private fun initialization() {
-        with(binding){
-            verticalHomeScreenAdapter.list = listOf(
-                CategoryGameList(0,"Popularity", listOf(
-                    GameItem(0,1,"Game 1 Game Vampitr Vampire: The Masquerade - Bloodlines 2"),
-                    GameItem(0,1,"Game 2"),
-                    GameItem(0,1,"Game 3")
-                )),
-                CategoryGameList(1,"Category 1", listOf(
-                    GameItem(0,1,"Game 1"),
-                    GameItem(0,1,"Game 2"),
-                    GameItem(0,1,"Game 3")
-                )),
-                CategoryGameList(2,"Category 2", listOf(
-                    GameItem(0,1,"Game 1"),
-                    GameItem(0,1,"Game 2"),
-                    GameItem(0,1,"Game 3")
-                ))
-            )
-            rvVertical.adapter = verticalHomeScreenAdapter
-
+        with(binding) {
+            rvVertical.adapter = adapter
+            viewModel.data.observe(viewLifecycleOwner, Observer {
+                adapter.items = it
+            })
         }
     }
 
